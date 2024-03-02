@@ -22,30 +22,30 @@ bot.command("weather", (ctx) => {
 
 bot.command("info", (ctx) => {
   ctx.reply(`
-  🌤️ Telegram Weather Bot /n
+  🌤️ Telegram Weather Bot 
 
-Welcome to the Telegram Weather Bot! This bot helps you stay informed about the weather conditions in your area. Here's what you can do: /n
+Welcome to the Telegram Weather Bot! This bot helps you stay informed about the weather conditions in your area. Here's what you can do: 
 
-Commands: /n
+Commands: 
 
-    /start: Begin interacting with the bot. /n
-    /weather: Share your location to receive the current weather forecast. /n
-    /info: Learn more about the bot. /n
-    /author: Find out about the creator of this bot. /n
+    /start: Begin interacting with the bot.
+    /weather: Share your location to receive the current weather forecast.
+    /info: Learn more about the bot.
+    /author: Find out about the creator of this bot.
 
-How to Use: /n
+How to Use:
 
-    Start a chat with the bot. /n
-    Use the /weather command to share your location. /n
-    The bot will provide you with the latest weather forecast for your area. /n
+    Start a chat with the bot.
+    Use the /weather command to share your location.
+    The bot will provide you with the latest weather forecast for your area.
 
-About the Bot: /n
-The Telegram Weather Bot is designed to provide you with quick and accurate weather updates based on your location. It's easy to use and ensures that you always know what to expect from the weather. /n
+About the Bot:
+The Telegram Weather Bot is designed to provide you with quick and accurate weather updates based on your location. It's easy to use and ensures that you always know what to expect from the weather.
 
-Feedback: /n
-We're constantly working to improve our bot. If you have any feedback or suggestions, feel free to share them with us using the chat interface. /n
+Feedback:
+We're constantly working to improve our bot. If you have any feedback or suggestions, feel free to share them with us using the chat interface.
 
-Enjoy using the Telegram Weather Bot, and stay ahead of the weather! /n
+Enjoy using the Telegram Weather Bot, and stay ahead of the weather!
 
   `);
 });
