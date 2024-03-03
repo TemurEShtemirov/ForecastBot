@@ -5,12 +5,20 @@ import "dotenv/config";
 const botToken =
   process.env.BOT_TOKEN || "6602215576:AAH2vcaS3Ane7tmgr22BcDM5V1x9wVBRMyc";
 const ACCUWEATHER_API_KEY =
-  process.env.API_KEY || "PW2Ncly7BQbA43sm3NVbACYwBfCl05GM";
+  process.env.API_KEY || "l7brU1a44l4z47FOXDOFaq6TxTHb9eXB";
+
 
 const bot = new Telegraf(botToken);
 
 bot.start((ctx) => {
-  ctx.reply("Welcome =)");
+  ctx.reply(`
+  🌤️ Welcome to Telegram Weather Bot!
+  Get accurate weather updates for your area.
+  Start with /start or share your location 
+  with /weather! Explore more with /info and 
+  find out about the creator with /author. 
+  We value your feedback; share your thoughts with us!
+  `);
 });
 
 bot.command("weather", (ctx) => {
@@ -96,7 +104,14 @@ async function getLocationKey(latitude, longitude) {
     }
   } catch (error) {
     console.error("Error fetching location key:", error.message);
-    return null;
+    if (error.response && error.response.status === 503) {
+      // Retry logic for HTTP 503 errors
+      console.log("Retrying...");
+      await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds before retrying
+      return getLocationKey(latitude, longitude);
+    } else {
+      return null;
+    }
   }
 }
 
@@ -116,6 +131,7 @@ async function fetchWeatherInfo(locationKey, forecastType) {
     return "Unable to fetch weather data.";
   }
 }
+
 
 function formatWeatherInfo(data) {
   let weatherInfo = `☁️ Weather Today:\n`;
